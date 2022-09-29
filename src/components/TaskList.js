@@ -1,26 +1,30 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Task from './Task'
+import { deleteTask } from '../features/tasks/tasksSlice'
+import '../styles/TaskList.css'
 
-function TaskList({data}) {
+function TaskList() {
     const tasks = useSelector((state) => state.tasks)
     console.log('TaskLists state', tasks)
-    console.log(data);
+
+    const dispatch = useDispatch()
+    //pasamos la ejecución de la función por props (closeTask})
+    const closeTask = (id) => {
+        dispatch(
+            deleteTask(id)
+        )
+    }
+
     return (
         <div>
-        { data.map(({id, task, date, complete},state) => {
-            return (<Task 
-                key={id}
-                id={id} 
-                task={task}
-                date={date}
-                complete={complete}
-                stateTask={state}
-                />)
-            })
-        }
+            { tasks.map((task) => {
+                return (
+                    <Task key={task.id} data={task} id={task.id} closeTask={() => closeTask(task.id)} />
+                    )
+                })
+            }
         </div>
     )
 }
-
 export default TaskList

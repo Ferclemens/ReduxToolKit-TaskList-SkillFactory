@@ -1,32 +1,26 @@
-import React, { useState } from "react"
+import React from "react"
 import { useSelector } from "react-redux"
 import '../styles/Task.css'
 
-const Task = ({id, task, date, complete},stateTask) => {
-    const state = useSelector((state) => state)
-    const animals = useSelector((state) => state.animals)
-    console.log('state in Task', state);
-    console.log('animals in Task', animals);
 
-    const [show, setShow] = useState(true)
-    
-    console.log(show);
-    const closeWindow = () => {
-        setShow(!show)
-    }
-    let card =  <div className="taskContainer">
-                    <button className="buttonClose" onClick={closeWindow}>X</button>
-                    <input type='checkBox' className="buttonCheck" onClick={() => stateTask}/>
-                    <div className="taskData">
-                        <h3>{`${id}`}</h3>
-                        <p>{`Complete: ${complete}`}</p>
-                        <p>{`Fecha: ${date}`}</p>
-                    </div>
-                    <h5 className="task">{`${task}`}</h5>
-                </div>
-    
-    let action = show ? card : <></>
-   
-    return (action)
+const Task = ({data, closeTask}) => {
+    //const state = useSelector((state) => state)
+    const tasks = useSelector((state) => state.tasks)
+    //console.log('state in Task', state);
+    console.log('tasks in Task', tasks);
+
+    return (
+        <div className="taskContainer" >
+            {/*ejecutamos la función closeTask con el onClick simplemente invocando la prop*/}
+            <button className="buttonClose" onClick={closeTask}>X</button>
+            <input type='checkBox' className="buttonCheck"/>
+            <div className="taskData">
+                <h3>{`${data.id}`}</h3>
+                <p>{`${data.title}`}</p>
+                <p>{`Fecha: ${data.date}`}</p>
+            </div>
+            <h5 className="task">{`${data.task}`}</h5>
+        </div>
+    )
 }
 export default Task

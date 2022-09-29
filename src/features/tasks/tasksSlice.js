@@ -1,23 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
-    {id: "1", title: "to do 1"},
-    {id: "2", title: "to do 2"},
-    {id: "3", title: "to do 3"},
-    {id: "4", title: "to do 4"}
+    {id: "UnO", title: "to do hardcore", task: "task hardCoreee!", date: "23-09-2022"},
 ]
 const taskSlice = createSlice({
     name:"tasks",
     initialState,
     reducers:{
         addTask:(state, action) => {
-            console.log('state en addTask', state)
-            console.log('action en addTask', action)
+            //console.log('state en addTask', state)
+            //console.log('action en addTask', action)
             state.push(action.payload)
         },
-        //deleteTask,
+        deleteTask:(state,action) => {
+            console.log('state en deleteTask', state)
+            console.log('action en deleteTask', action)
+            return state.filter((data) => data.id !== action.payload)
+        },
         //updateTask
     },
 })
-export const { addTask } = taskSlice.actions
+export const { addTask, deleteTask } = taskSlice.actions
 export default taskSlice.reducer

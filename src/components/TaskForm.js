@@ -6,10 +6,10 @@ import { addTask } from '../features/tasks/tasksSlice'
 
 function TaskForm() {
     //Logs data store
-    const state = useSelector((state) => state)
-    const products = useSelector((state) => state.products)
-    console.log('state in TaskForm', state)
-    console.log('products in TaskForm', products)
+    //const state = useSelector((state) => state)
+    //const products = useSelector((state) => state.products)
+    //console.log('state in TaskForm', state)
+    //console.log('products in TaskForm', products)
 
     const [tasks, setTasks] = useState([
     {
@@ -33,7 +33,7 @@ function TaskForm() {
         const [month, day, year] = [date.getMonth(), 
                                     date.getDate(), 
                                     date.getFullYear()];
-        const dateTask = `date: ${day} - ${month+1} - ${year}` 
+        const dateTask = `${day} - ${month+1} - ${year}` 
         dispatch(
             addTask({
                 ...tasks,
