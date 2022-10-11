@@ -53,12 +53,21 @@
     margin: 25px;
     transition: 0.3s;
 }
+.taskText {
+    font-weight: 400;
+    font-size: large;
+    margin: 25px;
+    transition: 0.3s;
+}
 
 @media (max-width: 500px) {
     .task {
         font-weight: 400;
         font-size: large;
         margin: 15px;
+    }
+    .taskText {
+        font-size: small;
     }
     .taskData {
         font-size:small;

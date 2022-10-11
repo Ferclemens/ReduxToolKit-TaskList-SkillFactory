@@ -6,7 +6,7 @@ import { addTask } from '../features/tasks/tasksSlice'
 
 function TaskForm() {
     //Logs data store
-    //const state = useSelector((state) => state)
+    const state = useSelector((state) => state.task)
     //const products = useSelector((state) => state.products)
     //console.log('state in TaskForm', state)
     //console.log('products in TaskForm', products)
@@ -51,7 +51,7 @@ function TaskForm() {
             <label className='formLabel'>Title</label>
             <input className='formInput' name='title' type='text' placeholder='title task' onChange={tipeTask}></input>
             <label className='formLabel'>Task</label>
-            <input className='formInput' name='task' type='textarea' placeholder='To do' onChange={tipeTask}></input>
+            <textarea className='formTextArea' name='task' type='textarea' placeholder='To do' onChange={tipeTask}></textarea>
             <button className='formButton' type='submit'>Add</button>
         </form>
     </div>

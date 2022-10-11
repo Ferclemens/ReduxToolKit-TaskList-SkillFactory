@@ -20,7 +20,23 @@
    border: 1px solid #6B49F2;
    background-color: #d1d4ff;
    transition: 0.5s;
-   letter-spacing: 1px;
+   /* letter-spacing: 1px; */
+}
+.formTextArea {
+   font-family: 'Lato', sans-serif;
+   margin-bottom: 25px;
+   padding: 8px;
+   width: 70%;
+   height: 110px;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius: 5px;
+   border: none;
+   outline: none;
+   border: 1px solid #6B49F2;
+   background-color: #d1d4ff;
+   transition: 0.5s;
+   /* letter-spacing: 1px; */
 }
 .formInput:hover{
    background-color: #eff0ff;
@@ -29,7 +45,8 @@
    margin-left: 14%;
    margin-right: auto;
    margin-bottom: 10px;
-   font-weight: 600; 
+   font-weight: 600;
+   transition: 0.5s; 
 }
 .formButton {
    width: 30%;
@@ -47,10 +64,22 @@
 }
 
 @media (max-width: 500px) {
+   .formContainer {
+      margin: 10px 50px; 
+   }
    .formInput{
       padding: 4px;
+      width: 100%;
    }
    .formButton {
       height: 25px;
+      width: 80px;
+   }
+   .formTextArea {
+      height: 60px;
+      width: 100%;
+   }
+   .formLabel {
+      margin-left: 0;
    }
 }
